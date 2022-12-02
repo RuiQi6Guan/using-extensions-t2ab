@@ -1,0 +1,79 @@
+namespace SpriteKind {
+    export const bullet = SpriteKind.create()
+    export const Star = SpriteKind.create()
+}
+let mySprite3: Sprite = null
+let mySprite: Sprite = null
+let mySprite2: Sprite = null
+game.onUpdateInterval(700, function () {
+    mySprite3 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . 2 2 2 2 . . . 
+        . . . . . . . 2 2 1 1 1 1 2 . . 
+        . . . . 2 2 3 3 1 1 1 1 1 1 . . 
+        . . 3 3 3 3 1 1 1 1 1 1 1 1 . . 
+        . . 1 1 1 1 1 1 1 1 1 1 1 1 . . 
+        . . 3 3 2 2 3 1 1 1 1 1 1 1 . . 
+        . . . . . . 2 2 3 1 1 1 1 2 . . 
+        . . . . . . . . . 2 2 2 2 . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Star)
+    mySprite3.setVelocity(randint(1, 100), 0)
+    info.startCountdown(10)
+})
+game.onUpdateInterval(500, function () {
+    scene.setBackgroundColor(randint(1, 16))
+    mySprite = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . b 5 5 5 b . . . . . 
+        . . . . . b b 5 5 5 b b . . . . 
+        . . b b b b 5 5 5 1 1 b b b b . 
+        . . b 5 5 5 5 5 5 1 1 5 5 5 b . 
+        . . b d d 5 5 5 5 5 5 5 d d b . 
+        . . . b d d 5 5 5 5 5 d d b . . 
+        . . . c b 5 5 5 5 5 5 5 b c . . 
+        . . . c b 5 5 5 5 5 5 5 b c . . 
+        . . . c 5 5 d d b d d 5 5 c . . 
+        . . . c 5 d d c c c d d 5 c . . 
+        . . . c c c c . . . c c c c . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.bullet)
+    mySprite.setVelocity(randint(-1, -100), 0)
+    mySprite.y = randint(1, 100)
+    mySprite2 = sprites.create(img`
+        ........................
+        ........................
+        ........................
+        ........................
+        ..........ffff..........
+        ........ff1111ff........
+        .......fb111111bf.......
+        .......f11111111f.......
+        ......fd11111111df......
+        ......fd11111111df......
+        ......fddd1111dddf......
+        ......fbdbfddfbdbf......
+        ......fcdcf11fcdcf......
+        .......fb111111bf.......
+        ......fffcdb1bdffff.....
+        ....fc111cbfbfc111cf....
+        ....f1b1b1ffff1b1b1f....
+        ....fbfbffffffbfbfbf....
+        .........ffffff.........
+        ...........fff..........
+        ........................
+        ........................
+        ........................
+        ........................
+        `, SpriteKind.Enemy)
+    mySprite2.setPosition(randint(-100, 100), randint(-100, 100))
+})
